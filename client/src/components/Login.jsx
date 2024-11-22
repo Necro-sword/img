@@ -19,11 +19,9 @@ const Login = () => {
                 const { data } = await axios.post(backendUrl+'/api/user/login',{ email, password })
                 if (data.success) {
                     setToken(data.token)
-<<<<<<< HEAD
-                    setUser(data.user)
-=======
+
                     setUser(data.name)
->>>>>>> 9ba7c15 (second commit)
+
                     localStorage.setItem('token', data.token)
                     setShowLogin(false)
                 } else {
@@ -33,11 +31,9 @@ const Login = () => {
                 const { data } = await axios.post(backendUrl+'/api/user/register',{ name, email, password })
                 if (data.success) {
                     setToken(data.token)
-<<<<<<< HEAD
-                    setUser(data.user)
-=======
+
                     setUser(data.name)
->>>>>>> 9ba7c15 (second commit)
+
                     localStorage.setItem('token', data.token)
                     setShowLogin(false)
                 } else {
