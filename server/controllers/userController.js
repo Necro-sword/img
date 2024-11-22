@@ -22,12 +22,9 @@ const registerUser = async (req, res) => {
         const newUsser = new userModel(userData)
         const user = await newUsser.save()
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
-        
-<<<<<<< HEAD
-        res.json({ success: true, token, name: { name: user.name } })
-=======
+
         res.json({ success: true, token, name:user.name })
->>>>>>> 9ba7c15 (second commit)
+
 
     } catch (error) {
         console.log(error)
@@ -46,12 +43,8 @@ const loginUser = async (req, res) => {
         const isMatch = await bcrypt.compare(password, user.password)
         if (isMatch) {
             const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
-        
-<<<<<<< HEAD
-            res.json({ success: true, token, name: { name: user.name } })
-=======
             res.json({ success: true, token, name:user.name })
->>>>>>> 9ba7c15 (second commit)
+
 
         } else {
             return res.json({ success: false, message: "password is incorrect" })
