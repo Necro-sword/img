@@ -11,21 +11,14 @@ export const generateImage = async (req, res) => {
         const { userId, prompt } = req.body
         const user = await userModel.findById(userId)
 
-<<<<<<< HEAD
-        if (!user || !prompt) {
-            return res.json({ success: false, message: 'missing details' })
-        }
-        if (user.credit === 0 || userModel.credit < 0) {
-            return res.json({ success: false, message: 'no credit left', credit: user.credit })
-        }
-=======
+
         // if (!user && !prompt) {
         //     return res.json({ success: false, message: 'missing details' })
         // }
         // if (user.credit === 0 || userModel.credit < 0) {
         //     return res.json({ success: false, message: 'no credit left', credit: user.credit })
         // }
->>>>>>> 9ba7c15 (second commit)
+
 
         const formData = new FormData
         formData.append('prompt', prompt)
@@ -39,14 +32,11 @@ export const generateImage = async (req, res) => {
 
         const base64Img = Buffer.from(data, 'binary').toString('base64')
         const resultImage = `data:image/png;base64,${base64Img}`
-<<<<<<< HEAD
-        await userModel.findByIdAndUpdate(user._id, { credit: user.credit-1 })
-        res.json({success:true , message:'image genearated' , credit : user.credit-1 , resultImage})
-=======
+
         // await userModel.findByIdAndUpdate(user._id, { credit: user.credit-1 })
         // res.json({success:true , message:'image genearated' , credit : user.credit-1 , resultImage})
         res.json({success:true , message:'image genearated' ,resultImage: resultImage})
->>>>>>> 9ba7c15 (second commit)
+
 
     } catch (error) {
         console.log(error)

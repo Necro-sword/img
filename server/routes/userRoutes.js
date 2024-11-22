@@ -13,8 +13,6 @@ userRouter.post('/login', loginUser)
 
 userRouter.get('/credit', userAuth ,userCredit)
 
-userRouter.get('/credit', userCredit)
-
 
 export default userRouter;
 
